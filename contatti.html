@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Sito Azienda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo Azienda">
+            </a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="calendario-eventi.html">Calendario Eventi</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+                <li><a href="dove-siamo.html">Dove Siamo</a></li>
+            </ul>
+        </nav>
+        <!-- Hamburger menu for mobile -->
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="intro">
+            <h2>Contattaci</h2>
+            <p>Hai domande o richieste? Non esitare a contattarci utilizzando il modulo sottostante!</p>
+        </section>
+        <section class="contact-form">
+            <form action="submit_contact_form.php" method="post">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Messaggio:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Invia</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nome Azienda - Tutti i diritti riservati</p>
+        <p class="social-text">Seguici sui social:</p>
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="logofb.png" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="logoig.png" alt="Instagram" class="social-icon">
+        </a>
+    </footer>
+</body>
+</html>
