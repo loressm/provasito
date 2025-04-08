@@ -1,8 +1,0 @@
-function toggleProductionDetails(productionId) {
-    const details = document.getElementById(productionId);
-    if (details.style.display === "none" || details.style.display === "") {
-        details.style.display = "block";
-    } else {
-        details.style.display = "none";
-    }
-}
