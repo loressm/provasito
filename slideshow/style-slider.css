@@ -1,0 +1,93 @@
+/* Slideshow container */
+#slideshow {
+  position: relative;
+  width: 70%; /* Imposta la larghezza al 70% */
+  margin: 0 auto; /* Centra il contenitore orizzontalmente */
+  height: 400px; /* Imposta l'altezza del contenitore */
+  top: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+/* Slide images */
+.slide-container {
+  display: flex;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+#slideshow .slide {
+  width: 100%; /* Ogni immagine occupa il 100% della larghezza del contenitore */
+  height: 100%; /* Ogni immagine occupa il 100% dell'altezza del contenitore */
+  object-fit: contain; /* Adatta l'immagine senza distorcerla, mantenendo le proporzioni */
+  opacity: 0;
+  position: absolute;
+  transition: opacity 1s ease-in-out;
+}
+
+#slideshow .slide.active {
+  opacity: 1; /* La slide diventa visibile */
+  position: relative;
+}
+
+/* Controls (arrows) */
+.controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Stop/Play Button */
+#stopButton {
+  position: absolute;
+  bottom: 10px;  /* Più vicino all'angolo */
+  right: 10px;   /* Posizionato nell'angolo in basso a destra */
+  background-color: rgba(0, 0, 0, 0.5); /* Stessa base colore delle frecce */
+  color: white;
+  border: none;
+  padding: 8px 12px;  /* Ridotto per renderlo più piccolo */
+  border-radius: 50%;  /* Rende il tasto circolare */
+  cursor: pointer;
+  font-size: 20px;  /* Più piccolo rispetto a prima */
+  transition: background-color 0.3s;
+}
+
+#stopButton:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Effetto hover uguale alle frecce */
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  /* Lo slideshow occupa tutta la larghezza del dispositivo */
+  #slideshow {
+    width: 100%;
+    margin-top: 0; /* Rimuove eventuali margini superiori */
+  }
+
+  /* Impostiamo l'altezza dello slideshow per essere più piccola sui dispositivi mobili */
+  #slideshow {
+    height: 250px; /* Puoi modificarla in base alle tue preferenze */
+  }
+
+  /* Eliminiamo margini o padding non necessari */
+  .navbar {
+    margin-bottom: 0;
+  }
+}
