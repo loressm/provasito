@@ -1,0 +1,160 @@
+.slideshow-container {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    top: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slide {
+    width: 100vw;
+    max-width: 100%;
+    flex-shrink: 0;
+    object-fit: contain; /* Cambiato da cover a contain per evitare tagli */
+    height: 250px;
+    display: none;
+    box-sizing: border-box;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Frecce */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(169, 169, 169, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Play/Pause come cerchio */
+.play-pause {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(169, 169, 169, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-pause:hover {
+    background-color: rgba(169, 169, 169, 0.8);
+}
+
+/* VERSIONE MOBILE - Carousel */
+@media (max-width: 768px) {
+    .slideshow-container {
+        width: 100vw;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .slide {
+        width: 100vw;
+        height: 250px;
+        object-fit: contain; /* Anche qui object-fit contain */
+        display: none;
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    .prev, .next {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    .play-pause {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* VERSIONE DESKTOP - Carousel */
+@media (min-width: 769px) {
+    .slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .slide {
+        width: 30%;
+        height: 350px;
+        display: block;
+        opacity: 0.5;
+        transform: scale(0.9);
+        transition: all 0.5s ease;
+        object-fit: contain; /* Anche su desktop, utilizziamo contain */
+    }
+
+    .slide.active {
+        opacity: 1;
+        transform: scale(1.05);
+        z-index: 1;
+    }
+
+    .prev, .next {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+}
