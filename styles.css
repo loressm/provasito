@@ -1,0 +1,349 @@
+/* Import dei font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap');
+
+/* Generale */
+body {
+    font-family: 'Lora', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #000;
+}
+
+/* Banner visibile solo su desktop */
+.banner {
+    display: block;
+}
+
+/* Header */
+header {
+    background-color: #FFDD57; /* Giallo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 80px;
+    position: relative;
+}
+
+header .logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+}
+
+header .logo img {
+    height: 80px;
+    width: auto;
+}
+
+/* Menu desktop centrato */
+@media (min-width: 769px) {
+    nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    header .logo img {
+        display: none;
+    }
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 40px;
+    white-space: nowrap;
+    position: relative;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+/* Linea sottostante al passaggio del mouse */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+/* Icona cornetta a destra di "Contattaci" */
+nav ul li a i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover i {
+    transform: scale(1.1);
+}
+
+/* Main */
+main {
+    padding: 20px;
+    background-color: #f4f4f4;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.intro p {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+}
+
+/* Calendario */
+#calendar-container {
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+#calendar h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.day {
+    padding: 15px;
+    text-align: center;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.highlighted {
+    background-color: #ffdd57;
+}
+
+.selected {
+    border: 3px solid #333;
+}
+
+.event-box {
+    margin-top: 20px;
+    background-color: #e0f7fa;
+    padding: 15px;
+    border-radius: 5px;
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+/* Footer */
+footer {
+    background-color: #FFDD57;
+    color: #000;
+    text-align: center;
+    padding: 10px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+    z-index: 10;
+}
+
+.social-icon {
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .banner {
+        display: none;
+    }
+
+    header {
+        height: 70px;
+    }
+
+    header .logo {
+        width: 100%;
+        justify-content: center;
+    }
+
+    header .logo img {
+        height: 100px;
+    }
+
+    nav ul {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #FFDD57;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: top 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    nav ul.active {
+        top: 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        font-size: 24px;
+        color: #000;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        z-index: 1001;
+    }
+
+    .hamburger div {
+        height: 5px;
+        background-color: #000;
+        width: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg);
+        transform-origin: 5% 5%;
+    }
+
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg);
+        transform-origin: 5% 95%;
+    }
+
+    footer {
+        display: block;
+        z-index: 10;
+    }
+
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    #calendar-container {
+        padding: 10px;
+    }
+
+    #calendar {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+
+    #calendar .day {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    #calendar-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .prev-next {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .map-container {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 200px;
+        border: 0;
+    }
+}
+
+/* Banner Desktop */
+@media (min-width: 1024px) {
+    .banner {
+        background-color: #FFDD57;
+        text-align: center;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .banner img {
+        max-height: 100px;
+        width: auto;
+    }
+}
